@@ -1,0 +1,6 @@
+,session_id,user_id,country,device_type,failed_logins_24h,hour,country_changed,is_new_ip,is_new_device,label_anomaly,score
+162,cbb7b0d3,user0038,FR,tablet,8,0,0,1,0,1,0.16634152987458228
+29,8412648a,user0280,HU,tablet,3,20,0,0,0,0,0.14529504905885304
+954,07443228,user0220,TR,tablet,2,19,0,0,0,0,0.13972679695675838
+243,895bd3f0,user0123,DE,tablet,0,7,0,0,0,0,0.12441941402258949
+676,7b87c9d8,user0060,RO,mobile,7,3,0,0,1,1,0.12305542143237203

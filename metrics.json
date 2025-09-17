@@ -1,0 +1,35 @@
+{
+  "run_info": {
+    "timestamp_utc": "2025-09-17T09:44:14+00:00",
+    "git_commit": "",
+    "data_file": "sample_logins.csv",
+    "n_samples": 1000,
+    "n_features": null
+  },
+  "data_split": {
+    "split_type": "time_ordered",
+    "train_size": 1000,
+    "test_size": 0,
+    "group_guard": "user_id"
+  },
+  "prevalence": 0.206,
+  "isolation_forest": {
+    "contamination_param": 0.206,
+    "random_state": 42
+  },
+  "thresholding": {
+    "strategy": "top_k_by_contamination",
+    "k": 10
+  },
+  "metrics": {
+    "pr_auc": 0.42030942891692996,
+    "precision_at_k": 0.7,
+    "recall_at_k": 0.03398058252427184,
+    "confusion_at_threshold": {
+      "tp": 7,
+      "fp": 3,
+      "tn": 791,
+      "fn": 199
+    }
+  }
+}
