@@ -51,7 +51,7 @@ def save_metrics_json(
         "prevalence": prevalence,
         "isolation_forest": model_info or {},
         "thresholding": {
-            "strategy": "top_k_by_contamination",
+            "strategy": "fixed_top_k",
             "k": int(chosen_k)
         },
         "metrics": {
