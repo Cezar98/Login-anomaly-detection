@@ -18,7 +18,7 @@
     "random_state": 42
   },
   "thresholding": {
-    "strategy": "top_k_by_contamination",
+    "strategy": "fixed_top_k",
     "k": 10
   },
   "metrics": {
@@ -32,4 +32,5 @@
       "fn": 199
     }
   }
+
 }
