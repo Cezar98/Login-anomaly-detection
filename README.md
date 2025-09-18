@@ -1,5 +1,5 @@
 # Login-anomaly-detection
-A simple project example of creating a model which detects login anomalies  It uses a toy example as table.
+A simple project example of creating a model which detects login anomalies (i.e. logins that different in their properties too much compared to typical logins). Detecting anomalous logins is helpful in identifying targeted cybersecurity attacks.  It uses a toy example as table.
 We read the data sample_logins.csv in the Current Working Directory.
 
 As methodology, we use the Isolation Forest unsupervised learning model. The training and testing data are the same in the sense that there is an extra column called 'label_anomaly' which checks if we identified correctly the anomalies. 
