@@ -8,6 +8,6 @@ The results give high precision (most of detected anomalies are actually anomali
 
 
 
-The parameters and metadata of the model are saved in the models.json file.
+The parameters and metadata of the model are saved in the models.json file. There is also included metrics about split data in case anyone wishes to do a train-test split.
 
 Works on Python 3.10
