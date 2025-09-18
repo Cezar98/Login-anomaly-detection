@@ -2,6 +2,6 @@
 A simple project example of creating a model which detects login anomalies  It uses a toy example as table.
 We read the data sample_logins.csv in the Current Working Directory.
 
-The results give high precision (most of detected anomalies are actually anomalies), but small recall (many anomalies however go unnoticed). So, the F-score is also small. The parameters and metadata of the model are saved in the Models.Json file
+The results give high precision (most of detected anomalies are actually anomalies), but small recall (many anomalies however go unnoticed). So, the F-score is also small. The parameters and metadata of the model are saved in the models.json file.
 
 Works on Python 3.10
