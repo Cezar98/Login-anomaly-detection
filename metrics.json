@@ -1,10 +1,10 @@
 {
   "run_info": {
-    "timestamp_utc": "2025-09-17T09:44:14+00:00",
+    "timestamp_utc": "2025-09-18T08:52:20+00:00",
     "git_commit": "",
     "data_file": "sample_logins.csv",
     "n_samples": 1000,
-    "n_features": null
+    "n_features": 8
   },
   "data_split": {
     "split_type": "time_ordered",
@@ -32,5 +32,4 @@
       "fn": 199
     }
   }
-
 }

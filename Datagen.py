@@ -18,6 +18,7 @@ import numpy as np
 def save_metrics_json(
     path,
     *,
+    n_features,
     y_true,
     scores,
     chosen_k,
@@ -45,8 +46,9 @@ def save_metrics_json(
             "git_commit": os.environ.get("GIT_COMMIT", ""),
             "data_file": data_file,
             "n_samples": int(len(y_true)),
-            "n_features": None  # fill if you track it
+            "n_features": n_features  # fill if you track it
         },
+
         "data_split": split_info or {},
         "prevalence": prevalence,
         "isolation_forest": model_info or {},
@@ -89,7 +91,7 @@ features = df_final['label_anomaly']
 y = df_final['label_anomaly'].astype(int).values
 df_final = df_final[['device_type','failed_logins_24h','hour','country_changed','is_new_ip','is_new_device']]
 df_final = pd.get_dummies(df_final, columns=['device_type'])
-
+n_features = df_final.shape[1]
 
 '''
 #Scaling data
@@ -180,9 +182,9 @@ print("\nTop-5 anomalies:")
 
 
 output = df.iloc[top5][cols_to_show].assign(score=scores[top5]).sort_values('score', ascending=False)
+output = output.reset_index(drop=True)
 
-
-print(df.iloc[top5][cols_to_show].assign(score=scores[top5]).sort_values('score', ascending=False))
+print(output)
 output.to_csv('worst_anomalies.csv')
 
 #Saving the model
@@ -190,6 +192,7 @@ joblib.dump(forest, open('model.pkl', 'wb'))
 
 save_metrics_json(
     "metrics.json",
+    n_features = n_features,
     y_true=y,
     scores=scores,
     chosen_k=k,
