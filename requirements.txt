@@ -1,1 +1,5 @@
-numpy pandas sklearn scikit-learn
+numpy
+pandas
+scikit-learn
+matplotlib
+
