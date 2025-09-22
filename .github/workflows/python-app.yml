@@ -27,19 +27,40 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          # In case matplotlib is imported: ensure headless backend available
           python - <<'PY'
           import os
           os.environ.setdefault("MPLBACKEND", "Agg")
+          print("MPLBACKEND set to", os.environ["MPLBACKEND"])
           PY
 
-      - name: Run pipeline
+      - name: Pre-run sanity check
+        run: |
+          python --version
+          pip list
+          echo "Repo tree:"
+          ls -la
+          echo "Search for expected inputs:"
+          ls -la sample* || true
+          ls -la data || true
+
+      - name: Run pipeline (verbose)
         env:
           MPLBACKEND: Agg
+          PYTHONUNBUFFERED: "1"
         run: |
+          set -e
+          echo "Running Datagen.py..."
           python Datagen.py
+          echo "Datagen.py completed."
 
-      - name: Upload artifacts
+      - name: Show outputs (if any)
+        run: |
+          echo "Listing outputs if present:"
+          ls -la metrics.json || true
+          ls -la worst_anomalies.csv || true
+          ls -la artifacts || true
+
+      - name: Upload artifacts (don’t fail if missing)
         uses: actions/upload-artifact@v4
         with:
           name: model-and-metrics
@@ -47,3 +68,4 @@ jobs:
             metrics.json
             worst_anomalies.csv
             artifacts/**
+          if-no-files-found: warn
